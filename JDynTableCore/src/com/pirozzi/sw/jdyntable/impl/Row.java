@@ -1,4 +1,6 @@
-package com.pirozzi.sw.jdyntable;
+package com.pirozzi.sw.jdyntable.impl;
+
+import com.pirozzi.sw.jdyntable.model.IRow;
 
 /**
  * It is a table row. It can contain zero, one or up to
@@ -7,7 +9,7 @@ package com.pirozzi.sw.jdyntable;
  * the memory only when it is needed. 
  * @author Donato Pirozzi - donatopirozzi@gmail.com
  */
-class Row {
+class Row implements IRow {
 
 	private JDynTable reftbl = null;
 	

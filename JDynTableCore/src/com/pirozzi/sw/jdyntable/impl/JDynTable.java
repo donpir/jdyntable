@@ -1,4 +1,4 @@
-package com.pirozzi.sw.jdyntable;
+package com.pirozzi.sw.jdyntable.impl;
 
 /**
  * A fast dynamic data structure to store data and access
@@ -14,6 +14,16 @@ public class JDynTable {
 	 * @return
 	 */
 	public Row addRow(int index) {
+		Row r = new Row(this);
+		return r;
+	}//EndMethod.
+	
+	/**
+	 * It creates a new row and adds it at the 
+	 * end of the table.
+	 * @return
+	 */
+	public Row addRow() {
 		Row r = new Row(this);
 		return r;
 	}//EndMethod.

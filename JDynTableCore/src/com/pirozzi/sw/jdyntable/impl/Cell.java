@@ -1,4 +1,4 @@
-package com.pirozzi.sw.jdyntable;
+package com.pirozzi.sw.jdyntable.impl;
 
 /**
  * It is a cell to hold data.

@@ -14,5 +14,7 @@
 package com.pirozzi.sw.jdyntable.model;
 
 public interface IRow {
-
+	
+	public ICell setData(long idxcol, Object obj);
+		
 }//EndInterface.

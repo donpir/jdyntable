@@ -13,11 +13,13 @@
 
 package com.pirozzi.sw.jdyntable.impl;
 
+import com.pirozzi.sw.jdyntable.model.ICell;
+
 /**
  * It is a cell to hold data.
  * @author Donato Pirozzi - donatopirozzi@gmail.com
  */
-public class Cell {
+class Cell implements ICell {
 
 	private Object data;
 

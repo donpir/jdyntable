@@ -13,6 +13,10 @@
 
 package com.pirozzi.sw.jdyntable.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.pirozzi.sw.jdyntable.model.ICell;
 import com.pirozzi.sw.jdyntable.model.IRow;
 
 /**
@@ -25,6 +29,7 @@ import com.pirozzi.sw.jdyntable.model.IRow;
 class Row implements IRow {
 
 	private JDynTable reftbl = null;
+	private Map<Long, ICell> rowcontent = new HashMap<Long, ICell>(); 
 	
 	/**
 	 * It creates a new new row.
@@ -33,5 +38,14 @@ class Row implements IRow {
 	public Row(JDynTable reftbl) {
 		this.reftbl = reftbl;
 	}//EndConstructor.
+
+	@Override
+	public ICell setData(long idxcol, Object obj) {
+		ICell cell = rowcontent.get(idxcol);
+		if (cell == null) {
+			cell = new Cell();
+		}
+		return null;
+	}//EndMethod.
 	
 }//EndClass.

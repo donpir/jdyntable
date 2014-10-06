@@ -16,8 +16,6 @@ package com.pirozzi.sw.jdyntable.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.sql.rowset.spi.SyncResolver;
-
 /**
  * A fast dynamic data structure to store data and access
  * them as a table. Rows are dynamic, instead the column must 

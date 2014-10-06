@@ -1,5 +1,11 @@
 package com.pirozzi.sw.jdyntable;
 
+/**
+ * A fast dynamic data structure to store data and access
+ * them as a table. Rows are dynamic, instead the column must 
+ * be fixed. 
+ * @author Donato Pirozzi - donatopirozzi@gmail.com
+ */
 public class JDynTable {
 
 	/**

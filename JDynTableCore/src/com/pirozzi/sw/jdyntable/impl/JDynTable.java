@@ -16,7 +16,9 @@ package com.pirozzi.sw.jdyntable.impl;
 /**
  * A fast dynamic data structure to store data and access
  * them as a table. Rows are dynamic, instead the column must 
- * be fixed. 
+ * be fixed.
+ * 
+ * It comes very useful especially for the sparse tables.
  * @author Donato Pirozzi - donatopirozzi@gmail.com
  */
 public class JDynTable {

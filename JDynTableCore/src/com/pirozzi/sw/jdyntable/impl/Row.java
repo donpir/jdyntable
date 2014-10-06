@@ -24,6 +24,9 @@ import com.pirozzi.sw.jdyntable.model.IRow;
  * <i>n</i> cells in according to the number of columns.
  * It is designed to be efficient in the sense that it uses
  * the memory only when it is needed. 
+ * 
+ * <b>Implementation details:</b> internally, it uses
+ * a map to store partial data.
  * @author Donato Pirozzi - donatopirozzi@gmail.com
  */
 class Row implements IRow {
@@ -44,8 +47,19 @@ class Row implements IRow {
 		ICell cell = rowcontent.get(idxcol);
 		if (cell == null) {
 			cell = new Cell();
+			rowcontent.put(idxcol, cell);
 		}
-		return null;
+		
+		cell.setData(obj);
+		
+		return cell;
+	}//EndMethod.
+
+	@Override
+	public Object getData(long idxcol) {
+		ICell cell = rowcontent.get(idxcol);
+		if (cell == null) return null;
+		return cell.getData();
 	}//EndMethod.
 	
 }//EndClass.

@@ -16,5 +16,12 @@ package com.pirozzi.sw.jdyntable.model;
 public interface IRow {
 	
 	public ICell setData(long idxcol, Object obj);
+	
+	/**
+	 * 
+	 * @param idxcol Column index.
+	 * @return The object or null.
+	 */
+	public Object getData(long idxcol);
 		
 }//EndInterface.

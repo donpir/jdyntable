@@ -6,4 +6,7 @@ package com.pirozzi.sw.jdyntable.model;
  */
 public interface ICell {
 
+	public Object getData();
+	public void setData(Object data);
+	
 }//EndInterface.

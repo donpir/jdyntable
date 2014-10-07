@@ -52,4 +52,15 @@ public class BasicOpRowTestCase extends TestCase {
 		assertEquals(1, tbl.size());
 	}//EndTest.
 	
+	public void testGetRow() {
+		//*PRE*
+		testReplaceRow();
+		
+		//*TEST*
+		IRow r0 = tbl.getRow(0);
+		assertNotNull(r0);
+		IRow r1 = tbl.getRow(1);
+		assertNull(r1);
+	}//EndTest.
+	
 }//EndClass. 

@@ -13,6 +13,10 @@
 
 package com.pirozzi.sw.jdyntable.impl;
 
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.pirozzi.sw.jdyntable.model.ICell;
 
 /**
@@ -21,9 +25,21 @@ import com.pirozzi.sw.jdyntable.model.ICell;
  */
 class Cell implements ICell {
 
-	private Object data;
+	private Object data; //Main data.
+	private Map<String, Serializable> attributes = new HashMap<String, Serializable>();
 
 	public Object getData() { return data; }
 	public void setData(Object data) { this.data = data; }
+	
+	@Override
+	public ICell put(String key, Serializable value) {
+		attributes.put(key, value);
+		return this;
+	}//EndMethod.
+	
+	@Override
+	public Serializable get(String key) {
+		return attributes.get(key);
+	}//EndMethod.
 	
 }//EndClass.

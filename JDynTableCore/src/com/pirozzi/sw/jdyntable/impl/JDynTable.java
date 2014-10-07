@@ -16,6 +16,8 @@ package com.pirozzi.sw.jdyntable.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.pirozzi.sw.jdyntable.model.IRow;
+
 /**
  * A fast dynamic data structure to store data and access
  * them as a table. Rows are dynamic, instead the column must 
@@ -57,8 +59,17 @@ public class JDynTable {
 		return r;
 	}//EndMethod.
 	
-	public long size() {
-		return rows.size();
+	/**
+	 * It gets the row at the desired index.
+	 * @param index 
+	 * @return The row at the desired index.
+	 */
+	public IRow getRow(long index) {
+		Row r = rows.get(index);
+		
+		return r;
 	}//EndMethod.
+	
+	public long size() { return rows.size(); }//EndMethod.
 	
 }//EndClass.

@@ -13,13 +13,22 @@
 
 package com.pirozzi.sw.jdyntable.model;
 
+import java.io.Serializable;
+
 /**
- * It is a cell to hold data.
+ * It is a cell to hold data. It can be decorated adding 
+ * other information to the cell.
+ * 
+ * It uses the decorator design pattern to allow the
+ * adding of metadata to the cell.
  * @author Donato Pirozzi - donatopirozzi@gmail.com
  */
 public interface ICell {
 
 	public Object getData();
 	public void setData(Object data);
+	
+	public ICell put(String key, Serializable value);
+	public Serializable get(String key);
 	
 }//EndInterface.

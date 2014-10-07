@@ -17,25 +17,27 @@ import com.pirozzi.sw.jdyntable.impl.JDynTable;
 import com.pirozzi.sw.jdyntable.model.IRow;
 
 /**
- * A collection of tools to improve the use of table.
+ * It is an utility to generate a table data to use
+ * within your application.
  * @author Donato Pirozzi [donatopirozzi@gmail.com]
  */
-public class PrinterTools {
+public class DummyDataGenerator {
 
 	/**
-	 * It reads the table and creates a printable representation.
-	 * @param tbl Table to print.
-	 * @return String that shows the data in the table.
+	 * It generates a table with flag data.
+	 * @return A new table.
 	 */
-	public String stringify(JDynTable tbl) {
-		String buffer = "";
+	public JDynTable generateFlagData() {
+		JDynTable tbl = new JDynTable();
 		
-		for (long i=0; i<tbl.size(); i++) {
-			IRow row = tbl.getRow(i);
-			buffer += String.format("||%10s|%10s||\n", row.getData(0), row.getData(1));
-		}//EndFor.
+		IRow rit = tbl.addRow();
+		rit.setData(0, "Italy");
+		rit.setData(1, "Europe");
+		IRow rfr = tbl.addRow();
+		rfr.setData(0, "Franch");
+		rfr.setData(1, "Europe");
 		
-		return buffer;
+		return tbl;
 	}//EndMethod.
 	
 }//EndClass.

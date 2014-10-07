@@ -7,7 +7,7 @@
  *  http://www.eclipse.org/legal/epl-v10.html
  *      
  *  Contributors:
- *   	- Donato Pirozzi [dpirozzi@unisa.it]
+ *   	- Donato Pirozzi [donatopirozzi@gmail.it]
  *   
  */
 

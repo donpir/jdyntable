@@ -23,7 +23,6 @@ public class BasicOpRowTestCase extends TestCase {
 		//*TEST*
 		//It adds a new row.
 		IRow r1 = tbl.addRow();
-		r1.setData(0, "Italianish");
 		assertEquals(1, tbl.size());
 	}//EndTest
 	
@@ -35,7 +34,6 @@ public class BasicOpRowTestCase extends TestCase {
 		//*TEST*
 		//It tries to replace the existing row.
 		IRow r2 = tbl.replaceRow(0);
-		r2.setData(0, "Italy");
 		assertEquals(1, tbl.size());
 	}//EndTest.
 	

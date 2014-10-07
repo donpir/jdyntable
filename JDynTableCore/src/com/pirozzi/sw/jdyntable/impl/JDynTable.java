@@ -28,17 +28,19 @@ public class JDynTable {
 	
 	private Map<Long, Row> rows = new HashMap<Long, Row>();
 	private long maxrowindex = 0;
-	private long numrows = 0;
 	
 	/**
 	 * It creates a new row for the table and 
 	 * attaches it to this table at the specified index.
+	 * 
+	 * <b>Important:</b> the other rows index are not changed, 
+	 * so if another row exists with the same index, it will replace
+	 * the previous one.
 	 * @return
 	 */
-	public synchronized Row addRow(long index) {
+	public synchronized Row replaceRow(long index) {
 		Row r = new Row(this);
 		rows.put(index, r);
-		numrows++;
 		if (index > maxrowindex) maxrowindex = index;
 		return r;
 	}//EndMethod.
@@ -50,10 +52,13 @@ public class JDynTable {
 	 */
 	public synchronized Row addRow() {
 		Row r = new Row(this);
-		maxrowindex++;
-		numrows++;
 		rows.put(maxrowindex, r);
+		maxrowindex++;
 		return r;
+	}//EndMethod.
+	
+	public long size() {
+		return rows.size();
 	}//EndMethod.
 	
 }//EndClass.

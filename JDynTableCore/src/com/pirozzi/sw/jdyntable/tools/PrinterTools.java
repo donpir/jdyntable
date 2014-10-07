@@ -30,10 +30,12 @@ public class PrinterTools {
 	public String stringify(JDynTable tbl) {
 		String buffer = "";
 		
+		buffer += "+---------------------------------------------------+\n";
 		for (long i=0; i<tbl.size(); i++) {
 			IRow row = tbl.getRow(i);
-			buffer += String.format("||%10s|%10s||\n", row.getData(0), row.getData(1));
+			buffer += String.format("|%-25s|%-10s|\n", row.getData(0), row.getData(1));
 		}//EndFor.
+		buffer += "+---------------------------------------------------+\n";
 		
 		return buffer;
 	}//EndMethod.

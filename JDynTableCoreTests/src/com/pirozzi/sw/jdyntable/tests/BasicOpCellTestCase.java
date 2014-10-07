@@ -34,12 +34,26 @@ public class BasicOpCellTestCase extends TestCase {
 		row = tbl.addRow();
 	}//EndConstructor.
 	
-	public void testSetData() {
+	public void testSetOneData() {
 		//*TEST*
 		row.setData(0, "Italianish");
 		Object obj = row.getData(0);
 		assertNotNull(obj);
 		assertEquals("Italianish", obj);
-	}//EndMethod.
+	}//EndTest.
+	
+	public void testSetTwoData() {
+		//*PRE*
+		testSetOneData();
+		//*LOAD*
+		row.setData(1, "Italy");
+		//*TEST*
+		Object obj0 = row.getData(0);
+		assertNotNull(obj0);
+		assertEquals("Italianish", obj0);
+		Object obj1 = row.getData(1);
+		assertNotNull(obj1);
+		assertEquals("Italy", obj1);
+	}//EndTest.
 	
 }//EndClass.

@@ -23,5 +23,11 @@ public interface IRow {
 	 * @return The object or null.
 	 */
 	public Object getData(long idxcol);
+	
+	/**
+	 * It returns the indexes of the filled columns of this row.
+	 * @return
+	 */
+	public Long[] getIndexes();
 		
 }//EndInterface.

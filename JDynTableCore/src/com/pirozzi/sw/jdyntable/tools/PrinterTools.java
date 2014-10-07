@@ -29,13 +29,30 @@ public class PrinterTools {
 	 */
 	public String stringify(JDynTable tbl) {
 		String buffer = "";
-		
-		buffer += "+---------------------------------------------------+\n";
+
+		long maxcols = 0;
 		for (long i=0; i<tbl.size(); i++) {
 			IRow row = tbl.getRow(i);
-			buffer += String.format("|%-25s|%-10s|\n", row.getData(0), row.getData(1));
-		}//EndFor.
-		buffer += "+---------------------------------------------------+\n";
+			
+			//It iterates over the columns.
+			Long[] colidxs = row.getIndexes();
+			for (long j=0; j<colidxs.length; j++) {
+				buffer += String.format("|%-10s", row.getData(j));
+			}//EndForJ.
+			
+			//It finds the max number of columns.
+			if (colidxs.length > maxcols) maxcols = colidxs.length;
+			
+			buffer += "|\n";
+			//buffer += String.format("|%-25s|%-10s|\n", row.getData(0), row.getData(1));
+		}//EndForI.
+		
+		//It prints the delimiters.
+		String delim = "+";
+		for (int i=0; i<maxcols; i++) {
+			delim += "----------+";
+		}
+		buffer = delim + "\n" + buffer + delim + "\n";
 		
 		return buffer;
 	}//EndMethod.

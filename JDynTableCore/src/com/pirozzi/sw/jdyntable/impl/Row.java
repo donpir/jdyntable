@@ -61,5 +61,10 @@ class Row implements IRow {
 		if (cell == null) return null;
 		return cell.getData();
 	}//EndMethod.
+
+	@Override
+	public Long[] getIndexes() {
+		return rowcontent.keySet().toArray(new Long[0]);
+	}//EndMethod.
 	
 }//EndClass.

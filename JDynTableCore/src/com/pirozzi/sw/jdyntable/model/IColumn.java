@@ -16,19 +16,16 @@ package com.pirozzi.sw.jdyntable.model;
 import java.io.Serializable;
 
 /**
- * It is a cell to hold data. It can be decorated adding 
- * other information to the cell.
+ * It is a table column.
+ * @author Donato Pirozzi [donatopirozzi@gmail.com]
  * 
- * It uses the decorator design pattern to allow the
- * adding of metadata to the cell.
- * @author Donato Pirozzi - donatopirozzi@gmail.com
  */
-public interface ICell extends Serializable {
+public interface IColumn extends Serializable {
 
-	public Object getData();
-	public void setData(Object data);
-	
-	public ICell put(String key, Serializable value);
-	public Serializable get(String key);
+	/**
+	 * A human-readable label.
+	 * @return
+	 */
+	public String getLabel();
 	
 }//EndInterface.

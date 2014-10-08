@@ -46,7 +46,7 @@ class Row implements IRow {
 	public ICell setData(long idxcol, Object obj) {
 		ICell cell = rowcontent.get(idxcol);
 		if (cell == null) {
-			cell = new Cell();
+			cell = new Cell(reftbl, this);
 			rowcontent.put(idxcol, cell);
 		}
 		

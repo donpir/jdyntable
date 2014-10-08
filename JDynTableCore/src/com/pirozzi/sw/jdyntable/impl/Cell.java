@@ -25,11 +25,29 @@ import com.pirozzi.sw.jdyntable.model.ICell;
  */
 class Cell implements ICell {
 
+	private static final long serialVersionUID = 1L;
+	
+	private JDynTable reftbl;
+	private Row refrow;
 	private Object data; //Main data.
 	private Map<String, Serializable> attributes = new HashMap<String, Serializable>();
 
+	public Cell(JDynTable table, Row row) {
+		this.reftbl = table;
+		this.refrow = row;
+	}//EndConstructor.
+	
 	public Object getData() { return data; }
-	public void setData(Object data) { this.data = data; }
+	public void setData(Object data) { 
+		//It checks if the object is serializable.
+		if (data instanceof Serializable == false)
+			throw new IllegalArgumentException("The object within a cell must be serializable.");
+		
+		//It sets the data.
+		this.data = data; 
+		
+		//It updates the column.
+	}//EndMehtod.
 	
 	@Override
 	public ICell put(String key, Serializable value) {

@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.pirozzi.sw.jdyntable.model.ICell;
+import com.pirozzi.sw.jdyntable.model.IColumn;
 import com.pirozzi.sw.jdyntable.model.IRow;
 
 /**
@@ -44,12 +45,20 @@ class Row implements IRow {
 
 	@Override
 	public ICell setData(long idxcol, Object obj) {
+		//It gets the column.
+		IColumn tcol = reftbl.getColumn(idxcol);
+		if (tcol == null)
+			throw new IndexOutOfBoundsException();
+		Column col = (Column) tcol;
+		
+		//It creates the cell.
 		ICell cell = rowcontent.get(idxcol);
 		if (cell == null) {
-			cell = new Cell(reftbl, this);
+			cell = new Cell(reftbl, this, col);
 			rowcontent.put(idxcol, cell);
 		}
 		
+		//It sets the data.
 		cell.setData(obj);
 		
 		return cell;

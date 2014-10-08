@@ -35,9 +35,10 @@ import com.pirozzi.sw.jdyntable.model.IRow;
  */
 public class JDynTable {
 	
-	private List<IColumn> columns = new ArrayList<IColumn>();
+	private Map<Long, Column> columns = new HashMap<Long, Column>();
 	private Map<Long, Row> rows = new HashMap<Long, Row>();
 	private long maxrowindex = 0;
+	private long maxcolindex = 0;
 	
 	/**
 	 * It creates a new row for the table and 
@@ -81,11 +82,27 @@ public class JDynTable {
 	public long size() { return rows.size(); }//EndMethod.
 	
 	/**
-	 * It gives an array with the columns.
+	 * It creates a new column and adds it at the end.
 	 * @return
 	 */
-	public IColumn[] getColumns() {
-		return columns.toArray(new IColumn[0]);
+	public IColumn addColumn() {
+		Column c = new Column(this);
+		columns.put(maxcolindex, c);
+		maxcolindex++;
+		return c;
+	}//EndMehtod.
+	
+	/**
+	 * It returns the column of table that has the provided index.
+	 * @param idxcol
+	 * @return  
+	 */
+	public IColumn getColumn(long idxcol) {
+		return columns.get(idxcol);
+	}//EndMethod.
+	
+	public long getNumColumns() {
+		return columns.size();
 	}//EndMethod.
 	
 }//EndClass.

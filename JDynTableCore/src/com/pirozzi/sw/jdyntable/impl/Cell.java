@@ -29,11 +29,14 @@ class Cell implements ICell {
 	
 	private JDynTable reftbl;
 	private Row refrow;
+	private Column refcol;
+	
 	private Object data; //Main data.
 	private Map<String, Serializable> attributes = new HashMap<String, Serializable>();
 
-	public Cell(JDynTable table, Row row) {
+	public Cell(JDynTable table, Row row, Column col) {
 		this.reftbl = table;
+		this.refcol = col;
 		this.refrow = row;
 	}//EndConstructor.
 	
@@ -43,10 +46,13 @@ class Cell implements ICell {
 		if (data instanceof Serializable == false)
 			throw new IllegalArgumentException("The object within a cell must be serializable.");
 		
+		//It is removing the old data, so it updates the columns statistics.
+		
+		
 		//It sets the data.
 		this.data = data; 
 		
-		//It updates the column.
+		
 	}//EndMehtod.
 	
 	@Override

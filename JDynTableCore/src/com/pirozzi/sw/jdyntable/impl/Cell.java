@@ -41,18 +41,19 @@ class Cell implements ICell {
 	}//EndConstructor.
 	
 	public Object getData() { return data; }
-	public void setData(Object data) { 
+	public synchronized void setData(Object data) { 
 		//It checks if the object is serializable.
 		if (data instanceof Serializable == false)
 			throw new IllegalArgumentException("The object within a cell must be serializable.");
 		
-		//It is removing the old data, so it updates the columns statistics.
-		
+		//It is removing the old data, so it updates the column statistics.
+		refcol.getStatsCount().statRemoved(this.data);
 		
 		//It sets the data.
 		this.data = data; 
 		
-		
+		//It is adding a new data, so it updates the column statistics.
+		refcol.getStatsCount().statInserted(this.data);
 	}//EndMehtod.
 	
 	@Override

@@ -44,7 +44,6 @@ public class PrinterTools {
 			if (colidxs.length > maxcols) maxcols = colidxs.length;
 			
 			buffer += "|\n";
-			//buffer += String.format("|%-25s|%-10s|\n", row.getData(0), row.getData(1));
 		}//EndForI.
 		
 		//It prints the delimiters.
